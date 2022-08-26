@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
 }
@@ -5,6 +10,25 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+a {
+  text-decoration: none;
+}
+nav ul {
+  display: flex;
+  background-color: cornflowerblue;
+
+  margin-block-start: 0;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li {
+  list-style-type: none;
+  margin-right: 16px;
+}
+nav ul li a {
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
