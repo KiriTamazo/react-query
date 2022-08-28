@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../api/axios";
 import { UserContext } from "./Context";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const Login = () => {
     userName: "",
     password: "",
   });
-
+  console.log("login");
   const { userName, password } = inputs;
 
   const handleChange = (e) => {
@@ -29,6 +29,7 @@ const Login = () => {
       [name]: value,
     });
   };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const res = await api.get("user");
@@ -46,6 +47,7 @@ const Login = () => {
     ) {
       console.log("submit");
       user.login = true;
+      localStorage.setItem("login", JSON.stringify(user.login));
       navigate("/users");
     } else {
       console.log("error");
@@ -59,7 +61,7 @@ const Login = () => {
   return (
     <Container
       sx={{
-        height: "94vh",
+        height: "100vh",
         width: "100%",
         display: "flex",
         flexDirection: "column",
